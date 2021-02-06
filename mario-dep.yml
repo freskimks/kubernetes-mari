@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mario
+  labels:
+    app: mario
+  namespace: mario
+spec:
+  selector:
+    matchLabels:
+      app: mario
+  template:
+    metadata:
+      labels:
+        app: mario
+    spec:
+      containers:
+      - name: mario
+        image: pengbai/docker-supermario
+        ports:
+        - containerPort: 8080
+
+
+       # volumeMounts:
+        #  - mountPath: /var/www/html
+         #   name: wordpress-config
+
+            
+     # volumes:
+      #  - name: wordpress-config
+       #   persistentVolumeClaim:
+        #    claimName: pvc-wordpress
